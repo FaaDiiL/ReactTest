@@ -14,8 +14,10 @@ code {
 
 .component {
   display: flex; /* Creating a flex container */
+  flex-direction: column; /* Display the content in column */
   justify-content: center;/* centering the text horizontally */
   align-items: center; /* centering the text vertically */
+
   border: 1px solid black;
   width: 300px;
   height: 300px;

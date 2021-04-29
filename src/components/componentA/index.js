@@ -1,13 +1,20 @@
-import React from 'react'
+import { useState } from 'react'
 
-const  ComponentA = () => {
+const ComponentA = () => {
+  const [button, setButton] = useState({ isDefaultColor: true })
 
-        return (
-            <div className={"component"}>
-                <span className={"component_title"}> Component A </span>
-            </div>
-        )
-    
+  const handleClick = () => {
+    setButton({ isDefaultColor: !button.isDefaultColor })
+  }
+
+  return (
+    <div
+      className={button.isDefaultColor ? 'component' : 'component lightPink'}
+    >
+      <p className={'component_title'}> Component A </p>
+      <button onClick={handleClick}>Change background color</button>
+    </div>
+  )
 }
 
 export default ComponentA
