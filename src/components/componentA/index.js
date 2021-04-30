@@ -21,7 +21,13 @@ const ComponentA = () => {
         : /** Else - Set state to the default value */
           { isDefaultColor: true }
     )
+    setTypedText(
+      localStorage.getItem('componentATextInput')?
+      localStorage.getItem('componentATextInput'):
+      ''
+      )
   }, [])
+
 
   const handleClick = () => {
     setButton({ isDefaultColor: !button.isDefaultColor })
@@ -31,12 +37,17 @@ const ComponentA = () => {
     )
   }
 
+  const handleChange =  (e) => {
+    setTypedText(e.target.value)
+    localStorage.setItem('componentATextInput', e.target.value)
+  }
+
   return (
     <div
       className={button.isDefaultColor ? 'component' : 'component lightPink'}
     >
       <p className={'component_title'}> Component A </p>
-      <input type="text" onChange={(e)=>setTypedText(e.target.value)} />
+      <input type="text" onChange={(e) => handleChange(e)} />
       <button onClick={handleClick}>Change background color</button>
     </div>
   )
