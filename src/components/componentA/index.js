@@ -1,7 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
+
+import { UserContext } from '../../userContext/UserContext'
 
 const ComponentA = () => {
   const [button, setButton] = useState({})
+  const {setTypedText} = useContext(UserContext)
 
   /** Runs only once */
   useEffect(() => {
@@ -33,6 +36,7 @@ const ComponentA = () => {
       className={button.isDefaultColor ? 'component' : 'component lightPink'}
     >
       <p className={'component_title'}> Component A </p>
+      <input type="text" onChange={(e)=>setTypedText(e.target.value)} />
       <button onClick={handleClick}>Change background color</button>
     </div>
   )

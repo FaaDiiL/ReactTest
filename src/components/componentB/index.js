@@ -1,7 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
+
+import { UserContext } from '../../userContext/UserContext'
 
 const ComponentB = () => {
   const [button, setButton] = useState({})
+  const {typedText} = useContext(UserContext)
+
+
 
   /** Runs only once */
   useEffect(() => {
@@ -33,6 +38,7 @@ const ComponentB = () => {
       className={button.isDefaultColor ? 'component' : 'component lightPink'}
     >
       <p className={'component_title'}> Component B </p>
+      {typedText}
       <button onClick={handleClick}>Change background color</button>
     </div>
   )
