@@ -6,3 +6,12 @@
 .lightPink {
      background-color: lightpink;
 }
+
+
+
+@media screen and (max-width: 499px) {
+     .App {
+       display: flex; /* Creating a flex container */
+       flex-direction: column; /* Display the content in column */
+     }
+   }

@@ -27,7 +27,7 @@ const ComponentA = () => {
         ? localStorage.getItem('componentATextInput')
         : ''
     )
-  }, [])
+  }, [setButton, setTypedText])
 
   const handleClick = () => {
     setButton({ isDefaultColor: !button.isDefaultColor })
